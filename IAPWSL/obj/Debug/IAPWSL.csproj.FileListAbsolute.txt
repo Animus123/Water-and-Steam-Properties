@@ -1,0 +1,5 @@
+C:\Programming\IAPWS-IF97\IAPWSL\bin\Debug\IAPWSL.dll
+C:\Programming\IAPWS-IF97\IAPWSL\bin\Debug\IAPWSL.pdb
+C:\Programming\IAPWS-IF97\IAPWSL\obj\Debug\IAPWSL.dll
+C:\Programming\IAPWS-IF97\IAPWSL\obj\Debug\IAPWSL.pdb
+C:\Programming\IAPWS-IF97\IAPWSL\obj\Debug\IAPWSL.csprojResolveAssemblyReference.cache

@@ -1,0 +1,8 @@
+C:\Programming\IAPWS-IF97\IAPWS-IF97\bin\Debug\IAPWS-IF97.exe.config
+C:\Programming\IAPWS-IF97\IAPWS-IF97\bin\Debug\IAPWS-IF97.exe
+C:\Programming\IAPWS-IF97\IAPWS-IF97\bin\Debug\IAPWS-IF97.pdb
+C:\Programming\IAPWS-IF97\IAPWS-IF97\bin\Debug\IAPWSL.dll
+C:\Programming\IAPWS-IF97\IAPWS-IF97\bin\Debug\IAPWSL.pdb
+C:\Programming\IAPWS-IF97\IAPWS-IF97\obj\Debug\IAPWS Application.csprojResolveAssemblyReference.cache
+C:\Programming\IAPWS-IF97\IAPWS-IF97\obj\Debug\IAPWS-IF97.exe
+C:\Programming\IAPWS-IF97\IAPWS-IF97\obj\Debug\IAPWS-IF97.pdb
