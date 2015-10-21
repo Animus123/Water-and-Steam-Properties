@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPWS Application", "IAPWS 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPWSL", "..\IAPWSL\IAPWSL.csproj", "{D6A22B10-71A0-4D7E-BA35-69C9EF19CEF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPWS Tests", "..\IAPWS Tests\IAPWS Tests.csproj", "{2BAEB34E-ADA3-40BA-834D-48DBFC676212}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D6A22B10-71A0-4D7E-BA35-69C9EF19CEF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A22B10-71A0-4D7E-BA35-69C9EF19CEF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A22B10-71A0-4D7E-BA35-69C9EF19CEF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BAEB34E-ADA3-40BA-834D-48DBFC676212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BAEB34E-ADA3-40BA-834D-48DBFC676212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BAEB34E-ADA3-40BA-834D-48DBFC676212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BAEB34E-ADA3-40BA-834D-48DBFC676212}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

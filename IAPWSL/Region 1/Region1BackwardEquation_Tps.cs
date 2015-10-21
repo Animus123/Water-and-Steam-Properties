@@ -2,7 +2,10 @@
 
 namespace IAPWSL
 {
-	public static class Region1BackwardEquation_Tps
+    /// <summary>
+    /// Backward equation for region 1. This equation takes pressure and entropy as input and returns temperature.
+    /// </summary>
+    internal static class Region1BackwardEquation_Tps
 	{
 		#region Numerical values of the coefficients and exponents of the backward equation T(p,s) for region 1
 		static int[] I =	{

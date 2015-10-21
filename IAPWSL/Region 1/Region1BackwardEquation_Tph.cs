@@ -2,7 +2,10 @@
 
 namespace IAPWSL
 {
-	public static class Region1BackwardEquation_Tph
+    /// <summary>
+    /// Backward equation for region 1. This equation takes pressure and enthalpy as input and returns temperature.
+    /// </summary>
+	internal static class Region1BackwardEquation_Tph
 	{
 		#region Numerical values of the coefficients and exponents of the backward equation T(p,h) for region 1
 		static int[] I =	{
@@ -58,13 +61,15 @@ namespace IAPWSL
 
             return theta;
 		}
-		
+
+        #region Methods for converting value to dimensionless
+
         /// <summary>
         /// Method counts dimensionless enthalpy
         /// </summary>
         /// <param name="h">enthalpy, kJ/kg</param>
         /// <returns>dimnsionless enthalpy</returns>
-		private static double CountDimensionlessEnthalpy(double h)
+        private static double CountDimensionlessEnthalpy(double h)
         {
             return h / 2500;	//2500 kJ/kg
         }
@@ -88,6 +93,8 @@ namespace IAPWSL
         {
             return t / 1;	// 1 K
         }
+
+        #endregion
 
         /// <summary>
         /// Calculates temperature using backward equation for region 1

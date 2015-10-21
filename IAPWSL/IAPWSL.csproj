@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Region 2\MetastableVaporRegion.cs" />
     <Compile Include="Region 1\Region1BackwardEquation_Tph.cs" />
     <Compile Include="Region 1\Region1BackwardEquation_Tps.cs" />
+    <Compile Include="Region 2\Region2.cs" />
+    <Compile Include="Region 2\Region2aBackwardEquation_Tps.cs" />
+    <Compile Include="Region 2\Region2aBackwardEquation_Tph.cs" />
+    <Compile Include="Region 2\Region2bBackwardEquation_Tps.cs" />
+    <Compile Include="Region 2\Region2bBackwardEquation_Tph.cs" />
+    <Compile Include="Region 2\Region2cBackwardEquation_Tps.cs" />
+    <Compile Include="Region 2\Region2cBackwardEquation_Tph.cs" />
+    <Compile Include="Region3.cs" />
+    <Compile Include="Region4.cs" />
     <Compile Include="Substance.cs" />
     <Compile Include="Region 1\Region1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

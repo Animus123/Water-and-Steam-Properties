@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /*This code based on "Revised Release on the IAPWS Industrial Formulation 1997 for the Thermodynamic Properties of Water and Steam"*/
 namespace IAPWSL
 {
-
+    /// <summary>
+    /// The basic equation for region 1
+    /// </summary>
     internal static class Region1BasicEquation
     {
         private const double R = 0.461526; // specific gas constant, kJ/(kg*K)
