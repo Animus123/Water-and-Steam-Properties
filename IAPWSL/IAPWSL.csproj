@@ -51,7 +51,7 @@
     <Compile Include="Region 2\Region2cBackwardEquation_Tps.cs" />
     <Compile Include="Region 2\Region2cBackwardEquation_Tph.cs" />
     <Compile Include="Region3.cs" />
-    <Compile Include="Region4.cs" />
+    <Compile Include="Region 4\Region4.cs" />
     <Compile Include="Substance.cs" />
     <Compile Include="Region 1\Region1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
