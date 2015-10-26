@@ -6,17 +6,16 @@ using Moq;
 /*I MADE TEST ONLY FOR BASIC EQUATION FOR REGION 1*/
 namespace IAPWS_Tests
 {
+    /*
+    Test carrys out for 3 different substances.
+    It checks property values of substances.
+    */
     [TestClass]
     public class Region1Tests
     {
         [TestMethod]
         public void Region1Test()
         {
-            /*
-            Test carrys out for 3 different substances.
-            It checks property values of substances.
-            */
-
             //Arrange
             double temperature1 = 300; //K
             double pressure1 = 3; //MPa
@@ -85,6 +84,7 @@ namespace IAPWS_Tests
         public void Region1BackwardEquation_Tph_Test()
         {
             //Arrange
+
             //Act
             //Assert
         }

@@ -28,15 +28,15 @@ namespace IAPWSL
 
         public Substance(double temperature, double pressure)
         {
-            Temperature = temperature;
-            Pressure = pressure;
-            SpecificVolume = Region1BasicEquation.CalculateSpecificVolume(Temperature, Pressure);
-            SpecificEnthalpy = Region1BasicEquation.CalculateSpecificEnthalpy(Temperature, Pressure);
-            SpecificInternalEnergy = Region1BasicEquation.CalculateSpecificInternalEnergy(Temperature, Pressure);
-            SpecificEntropy = Region1BasicEquation.CalculateSpecificEntropy(Temperature, Pressure);
-            SpecificIsobaricHeatCapacity = Region1BasicEquation.SpecificIsobaricHeatCapacity(Temperature, Pressure);
-            SpeedOfSound = Region1BasicEquation.SpeedOfSound(Temperature, Pressure);
-            SpecificIsochoricHeatCapacity = Region1BasicEquation.SpecificIsochoricHeatCapacity(Temperature, Pressure);
+            //Temperature = temperature;
+            //Pressure = pressure;
+            //SpecificVolume = Region1BasicEquation.CalculateSpecificVolume(Temperature, Pressure);
+            //SpecificEnthalpy = Region1BasicEquation.CalculateSpecificEnthalpy(Temperature, Pressure);
+            //SpecificInternalEnergy = Region1BasicEquation.CalculateSpecificInternalEnergy(Temperature, Pressure);
+            //SpecificEntropy = Region1BasicEquation.CalculateSpecificEntropy(Temperature, Pressure);
+            //SpecificIsobaricHeatCapacity = Region1BasicEquation.SpecificIsobaricHeatCapacity(Temperature, Pressure);
+            //SpeedOfSound = Region1BasicEquation.SpeedOfSound(Temperature, Pressure);
+            //SpecificIsochoricHeatCapacity = Region1BasicEquation.SpecificIsochoricHeatCapacity(Temperature, Pressure);
         }
         
         //Возможно добавлю
