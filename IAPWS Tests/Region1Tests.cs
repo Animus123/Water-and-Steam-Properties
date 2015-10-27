@@ -36,11 +36,11 @@ namespace IAPWS_Tests
             //Assert
             Assert.AreEqual(0.100215168 * Math.Pow(10, -2), (double)substance1.SpecificVolume, 0.0000001,
                 "Substance has wrong specific volume");
-            Assert.AreEqual(0.115331273 * Math.Pow(10, 3), (double)substance1.SpecificEnthalpy, 0.0001,
+            Assert.AreEqual(0.115331273 * Math.Pow(10, 3), (double)substance1.SpecificEnthalpy.Value, 0.0001,
                 "Substance has wrong specific enthalpy");
             Assert.AreEqual(0.112324818 * Math.Pow(10, 3), (double)substance1.SpecificInternalEnergy, 0.0001,
                 "Substance has wrong specific internal energy");
-            Assert.AreEqual(0.392294792, (double)substance1.SpecificEntropy, 0.0000001,
+            Assert.AreEqual(0.392294792, (double)substance1.SpecificEntropy.Value, 0.0000001,
                 "Substance has wrong specific specific entropy");
             Assert.AreEqual(0.417301218 * Math.Pow(10, 1), (double)substance1.SpecificIsobaricHeatCapacity, 0.000001,
                 "Substance has wrong specific isobaric heat capacity");
@@ -51,11 +51,11 @@ namespace IAPWS_Tests
 
             Assert.AreEqual(0.971180894 * Math.Pow(10, -3), (double)substance2.SpecificVolume, 0.0000001,
                 "Substance has wrong specific volume");
-            Assert.AreEqual(0.184142828 * Math.Pow(10, 3), (double)substance2.SpecificEnthalpy, 0.0001,
+            Assert.AreEqual(0.184142828 * Math.Pow(10, 3), (double)substance2.SpecificEnthalpy.Value, 0.0001,
                 "Substance has wrong specific enthalpy");
             Assert.AreEqual(0.106448356 * Math.Pow(10, 3), (double)substance2.SpecificInternalEnergy, 0.0001,
                 "Substance has wrong specific internal energy");
-            Assert.AreEqual(0.368563852, (double)substance2.SpecificEntropy, 0.0000001,
+            Assert.AreEqual(0.368563852, (double)substance2.SpecificEntropy.Value, 0.0000001,
                 "Substance has wrong specific specific entropy");
             Assert.AreEqual(0.401008987 * Math.Pow(10, 1), (double)substance2.SpecificIsobaricHeatCapacity, 0.000001,
                 "Substance has wrong specific isobaric heat capacity");
@@ -66,11 +66,11 @@ namespace IAPWS_Tests
 
             Assert.AreEqual(0.120241800 * Math.Pow(10, -2), (double)substance3.SpecificVolume, 0.0000001,
                 "Substance has wrong specific volume");
-            Assert.AreEqual(0.975542239 * Math.Pow(10, 3), (double)substance3.SpecificEnthalpy, 0.0001,
+            Assert.AreEqual(0.975542239 * Math.Pow(10, 3), (double)substance3.SpecificEnthalpy.Value, 0.0001,
                 "Substance has wrong specific enthalpy");
             Assert.AreEqual(0.971934985 * Math.Pow(10, 3), (double)substance3.SpecificInternalEnergy, 0.0001,
                 "Substance has wrong specific internal energy");
-            Assert.AreEqual(0.258041912 * Math.Pow(10, 1), (double)substance3.SpecificEntropy, 0.0000001,
+            Assert.AreEqual(0.258041912 * Math.Pow(10, 1), (double)substance3.SpecificEntropy.Value, 0.0000001,
                 "Substance has wrong specific specific entropy");
             Assert.AreEqual(0.465580682 * Math.Pow(10, 1), (double)substance3.SpecificIsobaricHeatCapacity, 0.000001,
                 "Substance has wrong specific isobaric heat capacity");

@@ -6,3 +6,5 @@ C:\Programming\IAPWS-IF97\IAPWS Tests\bin\Debug\IAPWSL.pdb
 C:\Programming\IAPWS-IF97\IAPWS Tests\obj\Debug\IAPWS Tests.csprojResolveAssemblyReference.cache
 C:\Programming\IAPWS-IF97\IAPWS Tests\obj\Debug\IAPWS Tests.dll
 C:\Programming\IAPWS-IF97\IAPWS Tests\obj\Debug\IAPWS Tests.pdb
+C:\Programming\IAPWS-IF97\IAPWS Tests\bin\Debug\Moq.dll
+C:\Programming\IAPWS-IF97\IAPWS Tests\bin\Debug\Moq.xml

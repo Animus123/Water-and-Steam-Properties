@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoundaryRegion2Region3.cs" />
     <Compile Include="Region 2\MetastableVaporRegion.cs" />
     <Compile Include="Region 1\Region1BackwardEquation_Tph.cs" />
     <Compile Include="Region 1\Region1BackwardEquation_Tps.cs" />
@@ -56,6 +57,11 @@
     <Compile Include="Substance.cs" />
     <Compile Include="Region 1\Region1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubstanceProperties\AbstractProperty.cs" />
+    <Compile Include="SubstanceProperties\Enthalpy.cs" />
+    <Compile Include="SubstanceProperties\Entropy.cs" />
+    <Compile Include="SubstanceProperties\Pressure.cs" />
+    <Compile Include="SubstanceProperties\Temperature.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
