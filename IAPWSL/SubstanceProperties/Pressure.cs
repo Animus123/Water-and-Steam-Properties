@@ -8,7 +8,7 @@ namespace IAPWSL.SubstanceProperties
 {
     public class Pressure : AbstractProperty
     {
-        internal Pressure(double pressure, Measure measure = Measure.MPa)
+        public Pressure(double pressure, Measure measure = Measure.MPa)
         {
             switch (measure)
             {
@@ -51,7 +51,7 @@ namespace IAPWSL.SubstanceProperties
             }
         }
 
-        internal enum Measure
+        public enum Measure
         {
             Pa,
             kPa,

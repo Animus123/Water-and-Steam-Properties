@@ -8,7 +8,7 @@ namespace IAPWSL.SubstanceProperties
 {
     public class Entropy : AbstractProperty
     {
-        internal Entropy(double entropy, Measure measure = Measure.kJ_kgK)
+        public Entropy(double entropy, Measure measure = Measure.kJ_kgK)
         {
             switch (measure)
             {
@@ -33,7 +33,7 @@ namespace IAPWSL.SubstanceProperties
             }
         }
 
-        internal enum Measure
+        public enum Measure
         {
             J_kgK, //J/(kg*K)
             kJ_kgK, //kj/(kg*K)

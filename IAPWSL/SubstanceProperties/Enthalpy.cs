@@ -8,7 +8,7 @@ namespace IAPWSL.SubstanceProperties
 {
     public class Enthalpy : AbstractProperty
     {
-        internal Enthalpy(double enthalpy, Measure measure = Measure.kJ_kg)
+        public Enthalpy(double enthalpy, Measure measure = Measure.kJ_kg)
         {
             switch (measure)
             {
@@ -33,7 +33,7 @@ namespace IAPWSL.SubstanceProperties
             }
         }
 
-        internal enum Measure
+        public enum Measure
         {
             J_kg,   // J/kg
             kJ_kg,  // kJ/kg

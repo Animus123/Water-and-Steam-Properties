@@ -37,30 +37,53 @@ namespace IAPWSL
 
         public Substance(Temperature temperature, Pressure pressure)
         {
-            //Temperature = temperature;
-            //Pressure = pressure;
-            //SpecificVolume = Region1BasicEquation.CalculateSpecificVolume(Temperature, Pressure);
-            //SpecificEnthalpy = Region1BasicEquation.CalculateSpecificEnthalpy(Temperature, Pressure);
-            //SpecificInternalEnergy = Region1BasicEquation.CalculateSpecificInternalEnergy(Temperature, Pressure);
-            //SpecificEntropy = Region1BasicEquation.CalculateSpecificEntropy(Temperature, Pressure);
-            //SpecificIsobaricHeatCapacity = Region1BasicEquation.SpecificIsobaricHeatCapacity(Temperature, Pressure);
-            //SpeedOfSound = Region1BasicEquation.SpeedOfSound(Temperature, Pressure);
-            //SpecificIsochoricHeatCapacity = Region1BasicEquation.SpecificIsochoricHeatCapacity(Temperature, Pressure);
+            CalculateProperties(temperature, pressure);
+        }
 
+        public Substance(Pressure pressure, Enthalpy enthalpy)
+        {
+            SubstancePressure = pressure;
+            SubstanceTemperature = new Temperature(Region1BackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+            CalculateProperties(SubstanceTemperature, SubstancePressure);
+        }
+
+        public Substance(Pressure pressure, Entropy entropy)
+        {
+            SubstancePressure = pressure;
+            SubstanceTemperature = new Temperature(Region1BackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+            CalculateProperties(SubstanceTemperature, SubstancePressure);
+        }
+
+        public Substance(Pressure pressure) : this(new Temperature(Region4.CalculateSaturationTemperature(pressure.Value)), pressure)
+        {
+            //
+        }
+
+        public Substance(Temperature temperature) : this(temperature, new Pressure(Region4.CalculateSaturationPressure(temperature.Value)))
+        {
+
+        }
+
+        #endregion
+        //TODO
+        private void OnPropertyChanged() { }
+
+        private void CalculateProperties(Temperature temperature, Pressure pressure)
+        {
             //check if it is region 1
-            if (temperature.Value>=273.15 &&
-                temperature.Value<=623.15 &&
-                pressure.Value>=Region4.CalculateSaturationPressure(temperature.Value) &&
-                pressure.Value<=100)
+            if (temperature.Value >= 273.15 &&
+                temperature.Value <= 623.15 &&
+                pressure.Value >= Region4.CalculateSaturationPressure(temperature.Value) &&
+                pressure.Value <= 100)
             {
-
+                Region1Calculations(temperature, pressure);
             }
 
             //check if it is region 2
-            else if (   
+            else if (
                         (
-                            temperature.Value>=273.15 && temperature.Value<=623.15 &&
-                             pressure.Value>0 && pressure.Value<=Region4.CalculateSaturationPressure(temperature.Value)
+                            temperature.Value >= 273.15 && temperature.Value <= 623.15 &&
+                             pressure.Value > 0 && pressure.Value <= Region4.CalculateSaturationPressure(temperature.Value)
                         )
                         ||
                         (
@@ -69,8 +92,8 @@ namespace IAPWSL
                         )
                         ||
                         (
-                            temperature.Value>863.15 && temperature.Value<=1073.15 &&
-                            pressure.Value> 0 && pressure.Value<=100
+                            temperature.Value > 863.15 && temperature.Value <= 1073.15 &&
+                            pressure.Value > 0 && pressure.Value <= 100
                         )
                     )
             {
@@ -78,8 +101,8 @@ namespace IAPWSL
             }
 
             //check if it is region 5
-            else if (temperature.Value>=1073.15 && temperature.Value<=2273.15
-                    && pressure.Value>0 && pressure.Value<=50)
+            else if (temperature.Value >= 1073.15 && temperature.Value <= 2273.15
+                    && pressure.Value > 0 && pressure.Value <= 50)
             {
 
             }
@@ -90,29 +113,17 @@ namespace IAPWSL
             }
         }
 
-        public Substance(Pressure pressure, Enthalpy enthalpy)
+        private void Region1Calculations(Temperature temperature, Pressure pressure)
         {
-
+            SubstanceTemperature = temperature;
+            SubstancePressure = pressure;
+            SpecificVolume = Region1BasicEquation.CalculateSpecificVolume(temperature.Value, pressure.Value);
+            SpecificEnthalpy = new Enthalpy(Region1BasicEquation.CalculateSpecificEnthalpy(temperature.Value, pressure.Value));
+            SpecificInternalEnergy = Region1BasicEquation.CalculateSpecificInternalEnergy(temperature.Value, pressure.Value);
+            SpecificEntropy = new Entropy(Region1BasicEquation.CalculateSpecificEntropy(temperature.Value, pressure.Value));
+            SpecificIsobaricHeatCapacity = Region1BasicEquation.SpecificIsobaricHeatCapacity(temperature.Value, pressure.Value);
+            SpeedOfSound = Region1BasicEquation.SpeedOfSound(temperature.Value, pressure.Value);
+            SpecificIsochoricHeatCapacity = Region1BasicEquation.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
         }
-
-        public Substance(Pressure pressure, Entropy entropy)
-        {
-
-        }
-
-        public Substance(Pressure pressure) : this(new Temperature(Region4.CalculateSaturationTemperature(pressure.Value)), pressure)
-        {
-            //
-        }
-
-        public Substance(Temperature temperature)
-        {
-
-        }
-
-        #endregion
-        //Возможно добавлю
-        private void OnPropertyChanged() { }
-
     }
 }

@@ -12,11 +12,11 @@ namespace IAPWSL.SubstanceProperties
     public class Temperature : AbstractProperty
     {
         /// <summary>
-        /// Constructor always set temperature in Kalvin.
+        /// Constructor sets temperature in Kalvin.
         /// </summary>
         /// <param name="temerature">temperature</param>
         /// <param name="measure">measure in K, C, F or R</param>
-        internal Temperature(double temerature, Measure measure = Measure.K)
+        public Temperature(double temerature, Measure measure = Measure.K)
         {
             switch (measure)
             {
@@ -38,7 +38,7 @@ namespace IAPWSL.SubstanceProperties
             }
         }
 
-        internal enum Measure
+        public enum Measure
         {
             K,
             Celsius,
