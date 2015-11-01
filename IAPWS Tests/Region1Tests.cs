@@ -116,7 +116,7 @@ namespace IAPWS_Tests
             Assert.AreEqual(4.237, (double)substance1.SpecificIsobaricHeatCapacity, 0.001,
                 "Substance1: Substance has wrong specific isobaric heat capacity");
             Assert.AreEqual(1529, (double)substance1.SpeedOfSound, 0.5,
-                "Substance1: Substance has wrong specific isobaric heat capacity");
+                "Substance1: Substance has wrong speed of sound");
             Assert.AreEqual(3.671, (double)substance1.SpecificIsochoricHeatCapacity, 0.001,
                 "Substance1: Substance has wrong specific isochoric heat capacity");
 

@@ -97,7 +97,7 @@ namespace IAPWSL
                         )
                     )
             {
-
+                Region2Calculations(temperature, pressure);
             }
 
             //check if it is region 5
@@ -124,6 +124,19 @@ namespace IAPWSL
             SpecificIsobaricHeatCapacity = Region1BasicEquation.SpecificIsobaricHeatCapacity(temperature.Value, pressure.Value);
             SpeedOfSound = Region1BasicEquation.SpeedOfSound(temperature.Value, pressure.Value);
             SpecificIsochoricHeatCapacity = Region1BasicEquation.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
+        }
+
+        private void Region2Calculations(Temperature temperature, Pressure pressure)
+        {
+            SubstanceTemperature = temperature;
+            SubstancePressure = pressure;
+            SpecificVolume = Region2.CalculateSpecificVolume(temperature.Value, pressure.Value);
+            SpecificEnthalpy = new Enthalpy(Region2.CalculateSpecificEnthalpy(temperature.Value, pressure.Value));
+            SpecificInternalEnergy = Region2.CalculateSpecificInternalEnergy(temperature.Value, pressure.Value);
+            SpecificEntropy = new Entropy(Region2.CalculateSpecificEntropy(temperature.Value, pressure.Value));
+            SpecificIsobaricHeatCapacity = Region2.SpecificIsobaricHeatCapacity(temperature.Value, pressure.Value);
+            SpeedOfSound = Region2.SpeedOfSound(temperature.Value, pressure.Value);
+            SpecificIsochoricHeatCapacity = Region2.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
         }
     }
 }

@@ -55,49 +55,49 @@ namespace IAPWSL
                            };
         static double[] n =
                             {
-                                -0,17731742473213 * Math.Pow(10, -2),//n1
-                                -0,17834862292358 * Math.Pow(10, -1),//n2
-                                -0,45996013696365 * Math.Pow(10, -1),//n3
-                                -0,57581259083432 * Math.Pow(10, -1),//n4
-                                -0,50325278727930 * Math.Pow(10, -1),//n5
-                                0,33032641670203 * Math.Pow(10, -4),//n6
-                                -0,18948987516315 * Math.Pow(10, -3),//n7
-                                -0,39392777243355 * Math.Pow(10, -2),//n8
-                                -0,43797295650573 * Math.Pow(10, -1),//n9
-                                -0,26674547914087 * Math.Pow(10, -4),//n10
-                                0,20481737692309 * Math.Pow(10, -7),//n11
-                                0,43870667284435 * Math.Pow(10, -6),//n12
-                                -0,32277677238570 * Math.Pow(10, -4),//n13
-                                -0,15033924542148 * Math.Pow(10, -2),//n14
-                                -0,40668253562649 * Math.Pow(10, -1),//n15
-                                -0,78847309559367 * Math.Pow(10, -9),//n16
-                                0,12790717852285 * Math.Pow(10, -7),//n17
-                                0,48225372718507 * Math.Pow(10, -6),//n18
-                                0,22922076337661 * Math.Pow(10, -5),//n19
-                                -0,16714766451061 * Math.Pow(10, -10),//n20
-                                -0,21171472321355 * Math.Pow(10, -2),//n21
-                                -0,23895741934104 * Math.Pow(10, 2),//n22
-                                -0,59059564324270 * Math.Pow(10, -17),//n23
-                                -0,12621808899101 * Math.Pow(10, -5),//n24
-                                -0,38946842435739 * Math.Pow(10, -1),//n25
-                                0,11256211360459 * Math.Pow(10, -10),//n26
-                                -0,82311340897998 * Math.Pow(10, 1),//n27
-                                0,19809712802088 * Math.Pow(10, -7),//n28
-                                0,10406965210174 * Math.Pow(10, -18),//n29
-                                -0,10234747095929 * Math.Pow(10, -12),//n30
-                                -0,10018179379511 * Math.Pow(10, -8),//n31
-                                -0,80882908646985 * Math.Pow(10, -10),//n32
-                                0,10693031879409,//n33
-                                -0,33662250574171,//n34
-                                0,89185845355421 * Math.Pow(10, -24),//n35
-                                0,30629316876232 * Math.Pow(10, -12),//n36
-                                -0,42002467698208 * Math.Pow(10, -5),//n37
-                                -0,59056029685639 * Math.Pow(10, -25),//n38
-                                0,37826947613457 * Math.Pow(10, -5),//n39
-                                -0,12768608934681 * Math.Pow(10, -14),//n40
-                                0,73087610595061 * Math.Pow(10, -28),//n41
-                                0,55414715350778 * Math.Pow(10, -16),//n42
-                                -0,94369707241210 * Math.Pow(10, -6),//n43
+                                -0.17731742473213 * Math.Pow(10, -2),//n1
+                                -0.17834862292358 * Math.Pow(10, -1),//n2
+                                -0.45996013696365 * Math.Pow(10, -1),//n3
+                                -0.57581259083432 * Math.Pow(10, -1),//n4
+                                -0.50325278727930 * Math.Pow(10, -1),//n5
+                                -0.33032641670203 * Math.Pow(10, -4),//n6
+                                -0.18948987516315 * Math.Pow(10, -3),//n7
+                                -0.39392777243355 * Math.Pow(10, -2),//n8
+                                -0.43797295650573 * Math.Pow(10, -1),//n9
+                                -0.26674547914087 * Math.Pow(10, -4),//n10
+                                0.20481737692309 * Math.Pow(10, -7),//n11
+                                0.43870667284435 * Math.Pow(10, -6),//n12
+                                -0.32277677238570 * Math.Pow(10, -4),//n13
+                                -0.15033924542148 * Math.Pow(10, -2),//n14
+                                -0.40668253562649 * Math.Pow(10, -1),//n15
+                                -0.78847309559367 * Math.Pow(10, -9),//n16
+                                0.12790717852285 * Math.Pow(10, -7),//n17
+                                0.48225372718507 * Math.Pow(10, -6),//n18
+                                0.22922076337661 * Math.Pow(10, -5),//n19
+                                -0.16714766451061 * Math.Pow(10, -10),//n20
+                                -0.21171472321355 * Math.Pow(10, -2),//n21
+                                -0.23895741934104 * Math.Pow(10, 2),//n22
+                                -0.59059564324270 * Math.Pow(10, -17),//n23
+                                -0.12621808899101 * Math.Pow(10, -5),//n24
+                                -0.38946842435739 * Math.Pow(10, -1),//n25
+                                0.11256211360459 * Math.Pow(10, -10),//n26
+                                -0.82311340897998 * Math.Pow(10, 1),//n27
+                                0.19809712802088 * Math.Pow(10, -7),//n28
+                                0.10406965210174 * Math.Pow(10, -18),//n29
+                                -0.10234747095929 * Math.Pow(10, -12),//n30
+                                -0.10018179379511 * Math.Pow(10, -8),//n31
+                                -0.80882908646985 * Math.Pow(10, -10),//n32
+                                0.10693031879409,//n33
+                                -0.33662250574171,//n34
+                                0.89185845355421 * Math.Pow(10, -24),//n35
+                                0.30629316876232 * Math.Pow(10, -12),//n36
+                                -0.42002467698208 * Math.Pow(10, -5),//n37
+                                -0.59056029685639 * Math.Pow(10, -25),//n38
+                                0.37826947613457 * Math.Pow(10, -5),//n39
+                                -0.12768608934681 * Math.Pow(10, -14),//n40
+                                0.73087610595061 * Math.Pow(10, -28),//n41
+                                0.55414715350778 * Math.Pow(10, -16),//n42
+                                -0.94369707241210 * Math.Pow(10, -6),//n43
                             };
         #endregion
 
@@ -242,7 +242,7 @@ namespace IAPWSL
             double pi = CountDimensionlessPressure(pressure);
             double tao = CountDimensionlessTemperature(temperature);
 
-            double specificVolume = (pi * (CountDerivative_dGamma0_dPi(pi) + CountDerivative_dGammaR_dPi(pi, tao))) * R * temperature / pressure;
+            double specificVolume = (pi * (CountDerivative_dGamma0_dPi(pi) + CountDerivative_dGammaR_dPi(pi, tao))) * R * temperature / (pressure*1000);
             return specificVolume;
         }
 
@@ -313,27 +313,30 @@ namespace IAPWSL
             double pi = CountDimensionlessPressure(pressure);
             double tao = CountDimensionlessTemperature(temperature);
 
-            double speedOfSound = (
-                                          (
-                                                1 + 2 * pi * CountDerivative_dGammaR_dPi(pi, tao)
-                                                + Math.Pow(pi, 2) * Math.Pow(CountDerivative_dGammaR_dPi(pi, tao), 2)
-                                          )
-                                          /
-                                          (
-                                                (1 - Math.Pow(pi, 2) * CountDerivative_dGammaR_dPi2(pi, tao))
-                                                +
-                                                (
-                                                       Math.Pow(
-                                                                   1 + pi * CountDerivative_dGammaR_dPi(pi, tao)
-                                                                   - tao * pi * CountDerivative_dGammaR_dPidTao(pi, tao)
-                                                            , 2)
-                                                )
-                                                /
-                                                (
-                                                       Math.Pow(tao, 2) * (CountDerivative_dGamma0_dTao2(tao) + CountDerivative_dGammaR_dTao2(pi, tao))
-                                                )
-                                          )
-                                  ) * R * temperature;
+            double speedOfSound = Math.Sqrt
+                                (
+                                        (
+                                                  (
+                                                        1 + 2 * pi * CountDerivative_dGammaR_dPi(pi, tao)
+                                                        + Math.Pow(pi, 2) * Math.Pow(CountDerivative_dGammaR_dPi(pi, tao), 2)
+                                                  )
+                                                  /
+                                                  (
+                                                        (1 - Math.Pow(pi, 2) * CountDerivative_dGammaR_dPi2(pi, tao))
+                                                        +
+                                                        (
+                                                               Math.Pow(
+                                                                           1 + pi * CountDerivative_dGammaR_dPi(pi, tao)
+                                                                           - tao * pi * CountDerivative_dGammaR_dPidTao(pi, tao)
+                                                                    , 2)
+                                                        )
+                                                        /
+                                                        (
+                                                               Math.Pow(tao, 2) * (CountDerivative_dGamma0_dTao2(tao) + CountDerivative_dGammaR_dTao2(pi, tao))
+                                                        )
+                                                  )
+                                          ) * R * temperature*1000
+                                 );
 
             return speedOfSound;
         }
