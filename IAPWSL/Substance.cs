@@ -43,15 +43,115 @@ namespace IAPWSL
         public Substance(Pressure pressure, Enthalpy enthalpy)
         {
             SubstancePressure = pressure;
-            SubstanceTemperature = new Temperature(Region1BackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
-            CalculateProperties(SubstanceTemperature, SubstancePressure);
+
+            //Checking what region the Substanse belong to:
+
+            //1. check if it is region 1
+            try
+            {
+                SubstanceTemperature = new Temperature(Region1BackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+            }
+            catch (CantDetermineRegionException)
+            { }
+            if (SpecificEnthalpy!=null && Math.Round(SpecificEnthalpy.Value) == Math.Round(enthalpy.Value))
+            {
+                //it is region 1
+                return;
+            }
+
+            //2. check if it is region 2
+
+            if (pressure.Value<=4)
+            {
+                SubstanceTemperature = new Temperature(Region2aBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                if (Math.Round(SpecificEnthalpy.Value, 1) == Math.Round(enthalpy.Value, 1))
+                {
+                    //it is region 2a
+                    return;
+                }
+            }
+            else if (Region2B2bcEquation.is2cSubregion(pressure.Value, enthalpy.Value) == false)
+            {
+                SubstanceTemperature = new Temperature(Region2bBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                if (Math.Round(SpecificEnthalpy.Value, 1) == Math.Round(enthalpy.Value, 1))
+                {
+                    //it is region 2b
+                    return;
+                }
+            }
+            else if (Region2B2bcEquation.is2cSubregion(pressure.Value, enthalpy.Value))
+            {
+                SubstanceTemperature = new Temperature(Region2cBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                if (Math.Round(SpecificEnthalpy.Value, 1) == Math.Round(enthalpy.Value, 1))
+                {
+                    //it is region 2c
+                    return;
+                }
+            }
+            else
+            {
+                throw new CantDetermineRegionException("It seems no region fits to these values pressure and enthalpy");
+            }
         }
 
         public Substance(Pressure pressure, Entropy entropy)
         {
             SubstancePressure = pressure;
-            SubstanceTemperature = new Temperature(Region1BackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
-            CalculateProperties(SubstanceTemperature, SubstancePressure);
+
+            //Checking what region the Substanse belong to:
+
+            //1. check if it is region 1
+            try
+            {
+                SubstanceTemperature = new Temperature(Region1BackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+            }
+            catch (CantDetermineRegionException)
+            { }
+
+            if (SpecificEntropy!=null && Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
+            {
+                //it is region 1
+                return;
+            }
+
+            //2. check if it is region 2
+
+            if (pressure.Value <= 4)
+            {
+                SubstanceTemperature = new Temperature(Region2aBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value ));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                if (Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
+                {
+                    //it is region 2a
+                    return;
+                }
+            }
+            else if (entropy.Value>=5.85)
+            {
+                SubstanceTemperature = new Temperature(Region2bBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                if (Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
+                {
+                    //it is region 2b
+                    return;
+                }
+            }
+            else
+            {
+                SubstanceTemperature = new Temperature(Region2cBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                if (Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
+                {
+                    //it is region 2c
+                    return;
+                }
+            }
+
         }
 
         public Substance(Pressure pressure) : this(new Temperature(Region4.CalculateSaturationTemperature(pressure.Value)), pressure)
@@ -65,8 +165,6 @@ namespace IAPWSL
         }
 
         #endregion
-        //TODO
-        private void OnPropertyChanged() { }
 
         private void CalculateProperties(Temperature temperature, Pressure pressure)
         {
@@ -109,7 +207,8 @@ namespace IAPWSL
 
             else
             {
-                throw new NotImplementedException("temperature or pressure value is out of range");
+                throw new CantDetermineRegionException
+                    ("Can not determine what region substance belongs to, temperature or pressure value may be out of range");
             }
         }
 
@@ -137,6 +236,19 @@ namespace IAPWSL
             SpecificIsobaricHeatCapacity = Region2.SpecificIsobaricHeatCapacity(temperature.Value, pressure.Value);
             SpeedOfSound = Region2.SpeedOfSound(temperature.Value, pressure.Value);
             SpecificIsochoricHeatCapacity = Region2.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
+        }
+
+
+        [Serializable]
+        public class CantDetermineRegionException : Exception
+        {
+            public CantDetermineRegionException() { }
+            public CantDetermineRegionException(string message) : base(message) { }
+            public CantDetermineRegionException(string message, Exception inner) : base(message, inner) { }
+            protected CantDetermineRegionException(
+              System.Runtime.Serialization.SerializationInfo info,
+              System.Runtime.Serialization.StreamingContext context) : base(info, context)
+            { }
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using IAPWSL;
+using IAPWSL.SubstanceProperties;
 
 namespace IAPWS_Application
 {
@@ -11,7 +12,7 @@ namespace IAPWS_Application
     {
         static void Main(string[] args)
         {
-            Substance s = new Substance(300, 3);
+            Substance s = new Substance(new Pressure(5), new Enthalpy(3500));
             Console.WriteLine(s.SpecificVolume);
             Console.WriteLine(s.SpecificEnthalpy);
             Console.WriteLine(s.SpecificInternalEnergy);
@@ -21,7 +22,7 @@ namespace IAPWS_Application
             Console.WriteLine(s.SpecificIsochoricHeatCapacity);
             Console.WriteLine();
 
-            s = new Substance(700, 30);
+            s = new Substance(new IAPWSL.SubstanceProperties.Pressure(0.001), new IAPWSL.SubstanceProperties.Enthalpy(3000));
             Console.WriteLine(s.SpecificVolume);
             Console.WriteLine(s.SpecificEnthalpy);
             Console.WriteLine(s.SpecificInternalEnergy);

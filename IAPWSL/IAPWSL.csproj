@@ -47,6 +47,7 @@
     <Compile Include="Region 2\Region2.cs" />
     <Compile Include="Region 2\Region2aBackwardEquation_Tps.cs" />
     <Compile Include="Region 2\Region2aBackwardEquation_Tph.cs" />
+    <Compile Include="Region 2\Region2B2bcEquation.cs" />
     <Compile Include="Region 2\Region2bBackwardEquation_Tps.cs" />
     <Compile Include="Region 2\Region2bBackwardEquation_Tph.cs" />
     <Compile Include="Region 2\Region2cBackwardEquation_Tps.cs" />

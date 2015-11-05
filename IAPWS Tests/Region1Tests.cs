@@ -14,7 +14,7 @@ namespace IAPWS_Tests
     public class Region1Tests
     {
         [TestMethod]
-        public void Region1Test()
+        public void Region1_Test()
         {
             //Arrange
             double temperature1 = 300; //K
