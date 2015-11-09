@@ -28,6 +28,15 @@ namespace IAPWSL
         public Temperature SubstanceTemperature { get; private set; }
         public Pressure SubstancePressure { get; private set; }
 
+        /// <summary>
+        /// State of aggregate. Need to determine if calculateions concerns Region 4 (Saturation line)
+        /// </summary>
+        public enum State
+        {
+            Water,
+            Steam
+        }
+
         #endregion
 
         #region Constructors
@@ -154,55 +163,74 @@ namespace IAPWSL
 
         }
 
-        public Substance(Pressure pressure) : this(new Temperature(Region4.CalculateSaturationTemperature(pressure.Value)), pressure)
+        public Substance(Pressure pressure, State state)
         {
-            //
+            Temperature temperature = new Temperature(Region4.CalculateSaturationTemperature(pressure.Value));
+            Region4Calculations(temperature, pressure, state);
         }
 
-        public Substance(Temperature temperature) : this(temperature, new Pressure(Region4.CalculateSaturationPressure(temperature.Value)))
+        public Substance(Temperature temperature, State state)
         {
-
+            Pressure pressure = new Pressure(Region4.CalculateSaturationPressure(temperature.Value));
+            Region4Calculations(temperature, pressure, state);
         }
 
         #endregion
 
+        #region Checking what region substance belongs to
+        private static bool IsRegion5(Temperature temperature, Pressure pressure)
+        {
+            return temperature.Value >= 1073.15 && temperature.Value <= 2273.15
+                                && pressure.Value > 0 && pressure.Value <= 50;
+        }
+
+        private static bool IsRegion2(Temperature temperature, Pressure pressure)
+        {
+            return
+                                    (
+                                        temperature.Value >= 273.15 && temperature.Value <= 623.15 &&
+                                         pressure.Value > 0 && pressure.Value <= Region4.CalculateSaturationPressure(temperature.Value)
+                                    )
+                                    ||
+                                    (
+                                        temperature.Value >= 623.15 && temperature.Value <= 863.15 &&
+                                         pressure.Value > 0 && pressure.Value <= BoundaryRegion2Region3.CalculateBoundaryPressure(temperature.Value)
+                                    )
+                                    ||
+                                    (
+                                        temperature.Value > 863.15 && temperature.Value <= 1073.15 &&
+                                        pressure.Value > 0 && pressure.Value <= 100
+                                    );
+        }
+
+        private static bool IsRegion1(Temperature temperature, Pressure pressure)
+        {
+            return temperature.Value >= 273.15 &&
+                            temperature.Value <= 623.15 &&
+                            Math.Round(pressure.Value, 9) >= Math.Round(Region4.CalculateSaturationPressure(temperature.Value), 9) &&
+                            pressure.Value <= 100;
+        }
+        #endregion
+
+        #region Methods calculate Substance Properties
         private void CalculateProperties(Temperature temperature, Pressure pressure)
         {
             //check if it is region 1
-            if (temperature.Value >= 273.15 &&
-                temperature.Value <= 623.15 &&
-                pressure.Value >= Region4.CalculateSaturationPressure(temperature.Value) &&
-                pressure.Value <= 100)
+            if (IsRegion1(temperature, pressure))
             {
                 Region1Calculations(temperature, pressure);
             }
 
             //check if it is region 2
-            else if (
-                        (
-                            temperature.Value >= 273.15 && temperature.Value <= 623.15 &&
-                             pressure.Value > 0 && pressure.Value <= Region4.CalculateSaturationPressure(temperature.Value)
-                        )
-                        ||
-                        (
-                            temperature.Value >= 623.15 && temperature.Value <= 863.15 &&
-                             pressure.Value > 0 && pressure.Value <= BoundaryRegion2Region3.CalculateBoundaryPressure(temperature.Value)
-                        )
-                        ||
-                        (
-                            temperature.Value > 863.15 && temperature.Value <= 1073.15 &&
-                            pressure.Value > 0 && pressure.Value <= 100
-                        )
-                    )
+            else if (IsRegion2(temperature, pressure))
             {
                 Region2Calculations(temperature, pressure);
             }
 
             //check if it is region 5
-            else if (temperature.Value >= 1073.15 && temperature.Value <= 2273.15
-                    && pressure.Value > 0 && pressure.Value <= 50)
+            else if (IsRegion5(temperature, pressure))
             {
-
+                Region5Calculations(temperature, pressure);
             }
 
             else
@@ -238,6 +266,41 @@ namespace IAPWSL
             SpecificIsochoricHeatCapacity = Region2.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
         }
 
+        private void Region4Calculations(Temperature temperature, Pressure pressure, State state)
+        {
+            switch (state)
+            {
+                case State.Water:
+                    if (IsRegion1(temperature, pressure))
+                    {
+                        Region1Calculations(temperature, pressure);
+                    }
+                    break;
+                case State.Steam:
+                    if (IsRegion2(temperature, pressure))
+                    {
+                        Region2Calculations(temperature, pressure);
+                    }
+                    break;
+                default:
+                    throw new CantDetermineRegionException
+                        ("The pressure value may be out of range. If you do not trying to find saturation line properties, you must not specify the state");
+            }
+        }
+
+        private void Region5Calculations(Temperature temperature, Pressure pressure)
+        {
+            SubstanceTemperature = temperature;
+            SubstancePressure = pressure;
+            SpecificVolume = Region5.CalculateSpecificVolume(temperature.Value, pressure.Value);
+            SpecificEnthalpy = new Enthalpy(Region5.CalculateSpecificEnthalpy(temperature.Value, pressure.Value));
+            SpecificInternalEnergy = Region5.CalculateSpecificInternalEnergy(temperature.Value, pressure.Value);
+            SpecificEntropy = new Entropy(Region5.CalculateSpecificEntropy(temperature.Value, pressure.Value));
+            SpecificIsobaricHeatCapacity = Region5.SpecificIsobaricHeatCapacity(temperature.Value, pressure.Value);
+            SpeedOfSound = Region5.SpeedOfSound(temperature.Value, pressure.Value);
+            SpecificIsochoricHeatCapacity = Region5.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
+        }
+        #endregion
 
         [Serializable]
         public class CantDetermineRegionException : Exception

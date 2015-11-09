@@ -32,7 +32,7 @@ namespace IAPWS_Application
             Console.WriteLine(s.SpecificIsochoricHeatCapacity);
             Console.WriteLine();
 
-            s = new Substance(500, 3);
+            s = new Substance(1500, 0.5);
             Console.WriteLine(s.SpecificVolume);
             Console.WriteLine(s.SpecificEnthalpy);
             Console.WriteLine(s.SpecificInternalEnergy);

@@ -8,6 +8,8 @@ namespace IAPWSL
 {
     internal static class Region3
     {
+        //This region is needed only for paremeters near critical point
+
         #region Numerical values of the coefficients and exponents of the dimensionless Helmholtz free energy for region 3
         static int[] I =   {
 
@@ -145,6 +147,5 @@ namespace IAPWSL
         }
         #endregion
 
-        // !!! For some reason this region has Phase-equilibrium condition (it is added to table 31) !!!
     }
 }
