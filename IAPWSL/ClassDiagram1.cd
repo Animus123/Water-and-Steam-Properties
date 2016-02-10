@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IAPWSL.BoundaryRegion2Region3" Collapsed="true">
+    <Position X="2.25" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>BoundaryRegion2Region3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region1BasicEquation" Collapsed="true">
+    <Position X="5.5" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BBAAAAAAAAAAAAAAAEgAAAAgACAAAAIAUEAiACABARo=</HashCode>
+      <FileName>Region 1\Region1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region1BackwardEquation_Tph" Collapsed="true">
+    <Position X="8.25" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAgACAEAAAAAAAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 1\Region1BackwardEquation_Tph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region1BackwardEquation_Tps" Collapsed="true">
+    <Position X="8.25" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgACAEAAAAACAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 1\Region1BackwardEquation_Tps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.MetastableVaporRegion" Collapsed="true">
+    <Position X="5.5" Y="3" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAEAAAQADAAQAAhAAAAgECAIAAABUEAAACABMBo=</HashCode>
+      <FileName>Region 2\MetastableVaporRegion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2" Collapsed="true">
+    <Position X="2.25" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAEAAAQADAAQAEhAAAAgECAIAAABUEACACABMRo=</HashCode>
+      <FileName>Region 2\Region2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2aBackwardEquation_Tph" Collapsed="true">
+    <Position X="5.5" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAgACAEAAAAAAAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 2\Region2aBackwardEquation_Tph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2aBackwardEquation_Tps" Collapsed="true">
+    <Position X="8.25" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgACAEAAAAACAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 2\Region2aBackwardEquation_Tps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2B2bcEquation" Collapsed="true">
+    <Position X="8.25" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Region 2\Region2B2bcEquation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2bBackwardEquation_Tph" Collapsed="true">
+    <Position X="5.5" Y="7" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAgACAEAAAAAAAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 2\Region2bBackwardEquation_Tph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2bBackwardEquation_Tps" Collapsed="true">
+    <Position X="2.25" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgACAEAAAAACAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 2\Region2bBackwardEquation_Tps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2cBackwardEquation_Tph" Collapsed="true">
+    <Position X="5.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAgACAEAAAAAAAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 2\Region2cBackwardEquation_Tph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region2cBackwardEquation_Tps" Collapsed="true">
+    <Position X="8.25" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgACAEAAAAACAAAAAAAAEAACACABAAA=</HashCode>
+      <FileName>Region 2\Region2cBackwardEquation_Tps.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region4" Collapsed="true">
+    <Position X="5.5" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAA=</HashCode>
+      <FileName>Region 4\Region4.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region3" Collapsed="true">
+    <Position X="8.25" Y="8" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAEAAAAAAAAAAAEggAAAAACAAAAACUEEAACEBABg=</HashCode>
+      <FileName>Region3.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Region5" Collapsed="true">
+    <Position X="2.25" Y="6" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAEAAAQADAAQAEhAAAAgECAIAAABUEACACABMRo=</HashCode>
+      <FileName>Region5.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.Substance">
+    <Position X="11.75" Y="0.5" Width="4.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="IAPWSL.Substance.State">
+        <TypeIdentifier>
+          <NewMemberFileName>Substance.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Class Name="IAPWSL.Substance.CantDetermineRegionException">
+        <TypeIdentifier>
+          <NewMemberFileName>Substance.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAEAAEAAAABAAAQCQAAAAEgIAgGAAAQBAAAAAAABg=</HashCode>
+      <FileName>Substance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.SubstanceProperties.AbstractProperty">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>SubstanceProperties\AbstractProperty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.SubstanceProperties.Enthalpy" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubstanceProperties\Enthalpy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.SubstanceProperties.Entropy" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubstanceProperties\Entropy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.SubstanceProperties.Pressure" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubstanceProperties\Pressure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IAPWSL.SubstanceProperties.Temperature" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="IAPWSL.SubstanceProperties.Temperature.Measure" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SubstanceProperties\Temperature.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubstanceProperties\Temperature.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

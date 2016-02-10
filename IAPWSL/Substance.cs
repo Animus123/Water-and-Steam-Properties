@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using IAPWSL.SubstanceProperties;
 
 namespace IAPWSL
@@ -19,14 +16,14 @@ namespace IAPWSL
             set { specificVolume = value; }
         }
 
-        public double SpecificInternalEnergy { get; internal set; }
+        public double SpecificInternalEnergy { get; private set; }
         public Entropy SpecificEntropy { get; private set; }
         public Enthalpy SpecificEnthalpy { get; private set; }
-        public double SpecificIsobaricHeatCapacity { get; internal set; }
-        public double SpecificIsochoricHeatCapacity { get; internal set; }
-        public double SpeedOfSound { get; internal set; }
-        public Temperature SubstanceTemperature { get; private set; }
-        public Pressure SubstancePressure { get; private set; }
+        public double SpecificIsobaricHeatCapacity { get; private set; }
+        public double SpecificIsochoricHeatCapacity { get; private set; }
+        public double SpeedOfSound { get; private set; }
+        public Temperature Temperature { get; private set; }
+        public Pressure Pressure { get; private set; }
 
         /// <summary>
         /// State of aggregate. Need to determine if calculateions concerns Region 4 (Saturation line)
@@ -41,6 +38,11 @@ namespace IAPWSL
 
         #region Constructors
 
+        /// <summary>
+        /// Get substance properties using temperature and pressure as input
+        /// </summary>
+        /// <param name="temperatureValue">Temperature in Kelvin</param>
+        /// <param name="pressureValue">Pressure in MPa</param>
         public Substance(double temperatureValue, double pressureValue) : this(new Temperature(temperatureValue), new Pressure(pressureValue))
         { }
 
@@ -51,15 +53,15 @@ namespace IAPWSL
 
         public Substance(Pressure pressure, Enthalpy enthalpy)
         {
-            SubstancePressure = pressure;
+            Pressure = pressure;
 
             //Checking what region the Substanse belong to:
 
             //1. check if it is region 1
             try
             {
-                SubstanceTemperature = new Temperature(Region1BackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region1BackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(Temperature, Pressure);
             }
             catch (CantDetermineRegionException)
             { }
@@ -73,8 +75,8 @@ namespace IAPWSL
 
             if (pressure.Value<=4)
             {
-                SubstanceTemperature = new Temperature(Region2aBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region2aBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(Temperature, Pressure);
                 if (Math.Round(SpecificEnthalpy.Value, 1) == Math.Round(enthalpy.Value, 1))
                 {
                     //it is region 2a
@@ -83,8 +85,8 @@ namespace IAPWSL
             }
             else if (Region2B2bcEquation.is2cSubregion(pressure.Value, enthalpy.Value) == false)
             {
-                SubstanceTemperature = new Temperature(Region2bBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region2bBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(Temperature, Pressure);
                 if (Math.Round(SpecificEnthalpy.Value, 1) == Math.Round(enthalpy.Value, 1))
                 {
                     //it is region 2b
@@ -93,8 +95,8 @@ namespace IAPWSL
             }
             else if (Region2B2bcEquation.is2cSubregion(pressure.Value, enthalpy.Value))
             {
-                SubstanceTemperature = new Temperature(Region2cBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region2cBackwardEquation_Tph.CalculateTemperature(pressure.Value, enthalpy.Value));
+                CalculateProperties(Temperature, Pressure);
                 if (Math.Round(SpecificEnthalpy.Value, 1) == Math.Round(enthalpy.Value, 1))
                 {
                     //it is region 2c
@@ -109,15 +111,15 @@ namespace IAPWSL
 
         public Substance(Pressure pressure, Entropy entropy)
         {
-            SubstancePressure = pressure;
+            Pressure = pressure;
 
             //Checking what region the Substanse belong to:
 
             //1. check if it is region 1
             try
             {
-                SubstanceTemperature = new Temperature(Region1BackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region1BackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+                CalculateProperties(Temperature, Pressure);
             }
             catch (CantDetermineRegionException)
             { }
@@ -132,8 +134,8 @@ namespace IAPWSL
 
             if (pressure.Value <= 4)
             {
-                SubstanceTemperature = new Temperature(Region2aBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value ));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region2aBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value ));
+                CalculateProperties(Temperature, Pressure);
                 if (Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
                 {
                     //it is region 2a
@@ -142,8 +144,8 @@ namespace IAPWSL
             }
             else if (entropy.Value>=5.85)
             {
-                SubstanceTemperature = new Temperature(Region2bBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region2bBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+                CalculateProperties(Temperature, Pressure);
                 if (Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
                 {
                     //it is region 2b
@@ -152,8 +154,8 @@ namespace IAPWSL
             }
             else
             {
-                SubstanceTemperature = new Temperature(Region2cBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
-                CalculateProperties(SubstanceTemperature, SubstancePressure);
+                Temperature = new Temperature(Region2cBackwardEquation_Tps.CalculateTemperature(pressure.Value, entropy.Value));
+                CalculateProperties(Temperature, Pressure);
                 if (Math.Round(SpecificEntropy.Value, 3) == Math.Round(entropy.Value, 3))
                 {
                     //it is region 2c
@@ -163,12 +165,18 @@ namespace IAPWSL
 
         }
 
+        /// <summary>
+        /// Get saturation line substance properties
+        /// </summary>
         public Substance(Pressure pressure, State state)
         {
             Temperature temperature = new Temperature(Region4.CalculateSaturationTemperature(pressure.Value));
             Region4Calculations(temperature, pressure, state);
         }
 
+        /// <summary>
+        /// Get saturation line substance properties
+        /// </summary>
         public Substance(Temperature temperature, State state)
         {
             Pressure pressure = new Pressure(Region4.CalculateSaturationPressure(temperature.Value));
@@ -242,8 +250,8 @@ namespace IAPWSL
 
         private void Region1Calculations(Temperature temperature, Pressure pressure)
         {
-            SubstanceTemperature = temperature;
-            SubstancePressure = pressure;
+            Temperature = temperature;
+            Pressure = pressure;
             SpecificVolume = Region1BasicEquation.CalculateSpecificVolume(temperature.Value, pressure.Value);
             SpecificEnthalpy = new Enthalpy(Region1BasicEquation.CalculateSpecificEnthalpy(temperature.Value, pressure.Value));
             SpecificInternalEnergy = Region1BasicEquation.CalculateSpecificInternalEnergy(temperature.Value, pressure.Value);
@@ -255,8 +263,8 @@ namespace IAPWSL
 
         private void Region2Calculations(Temperature temperature, Pressure pressure)
         {
-            SubstanceTemperature = temperature;
-            SubstancePressure = pressure;
+            Temperature = temperature;
+            Pressure = pressure;
             SpecificVolume = Region2.CalculateSpecificVolume(temperature.Value, pressure.Value);
             SpecificEnthalpy = new Enthalpy(Region2.CalculateSpecificEnthalpy(temperature.Value, pressure.Value));
             SpecificInternalEnergy = Region2.CalculateSpecificInternalEnergy(temperature.Value, pressure.Value);
@@ -290,8 +298,8 @@ namespace IAPWSL
 
         private void Region5Calculations(Temperature temperature, Pressure pressure)
         {
-            SubstanceTemperature = temperature;
-            SubstancePressure = pressure;
+            Temperature = temperature;
+            Pressure = pressure;
             SpecificVolume = Region5.CalculateSpecificVolume(temperature.Value, pressure.Value);
             SpecificEnthalpy = new Enthalpy(Region5.CalculateSpecificEnthalpy(temperature.Value, pressure.Value));
             SpecificInternalEnergy = Region5.CalculateSpecificInternalEnergy(temperature.Value, pressure.Value);
@@ -301,6 +309,22 @@ namespace IAPWSL
             SpecificIsochoricHeatCapacity = Region5.SpecificIsochoricHeatCapacity(temperature.Value, pressure.Value);
         }
         #endregion
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder(180);
+
+            sb.AppendLine($"Specific Internal Energy: {SpecificInternalEnergy} kJ/kg");
+            sb.AppendLine($"Specific Entropy: {SpecificEntropy.Value} kJ/(kg * K)");
+            sb.AppendLine($"Specific Enthalpy: {SpecificEnthalpy.Value} kJ/kg");
+            sb.AppendLine($"Specific Isobaric Heat Capacity: {SpecificIsobaricHeatCapacity} kJ/(kg * K)");
+            sb.AppendLine($"Specific Isochoric Heat Capacity: {SpecificIsochoricHeatCapacity} kJ/(kg * K)");
+            sb.AppendLine($"Speed of Sound: {SpeedOfSound} m/s");
+            sb.AppendLine($"Temperature: {Temperature.Value} K");
+            sb.AppendLine($"Substance Pressure: {Pressure.Value} MPa");
+
+            return sb.ToString();
+        }
 
         [Serializable]
         public class CantDetermineRegionException : Exception

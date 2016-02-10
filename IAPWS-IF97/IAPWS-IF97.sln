@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPWS Application", "IAPWS Application.csproj", "{1964D01E-902C-4069-9A93-BF7C9A1894F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPWS Example", "IAPWS Example.csproj", "{1964D01E-902C-4069-9A93-BF7C9A1894F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAPWSL", "..\IAPWSL\IAPWSL.csproj", "{D6A22B10-71A0-4D7E-BA35-69C9EF19CEF2}"
 EndProject

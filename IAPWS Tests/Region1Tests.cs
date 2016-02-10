@@ -103,7 +103,7 @@ namespace IAPWS_Tests
             substance3 = new Substance(new Pressure(pressure3), new Enthalpy(enthalpy3));
 
             //Assert
-            Assert.AreEqual(0.391798509 * Math.Pow(10, 3), (double)substance1.SubstanceTemperature.Value, 0.0001,
+            Assert.AreEqual(0.391798509 * Math.Pow(10, 3), (double)substance1.Temperature.Value, 0.0001,
                 "Substance1: Substance has wrong temperature");
             Assert.AreEqual(1.058 * Math.Pow(10, -3), (double)substance1.SpecificVolume, 0.000001,
                 "Substance1: Substance has wrong specific volume");
@@ -120,7 +120,7 @@ namespace IAPWS_Tests
             Assert.AreEqual(3.671, (double)substance1.SpecificIsochoricHeatCapacity, 0.001,
                 "Substance1: Substance has wrong specific isochoric heat capacity");
 
-            Assert.AreEqual(0.378108626 * Math.Pow(10, 3), (double)substance2.SubstanceTemperature.Value, 0.0001,
+            Assert.AreEqual(0.378108626 * Math.Pow(10, 3), (double)substance2.Temperature.Value, 0.0001,
                 "Substance2: Substance has wrong temperature");
             Assert.AreEqual(1.011 * Math.Pow(10, -3), (double)substance2.SpecificVolume, 0.000001,
                 "Substance2: Substance has wrong specific volume");
@@ -137,7 +137,7 @@ namespace IAPWS_Tests
             Assert.AreEqual(3.640, (double)substance2.SpecificIsochoricHeatCapacity, 0.001,
                 "Substance2: Substance has wrong specific isochoric heat capacity");
 
-            Assert.AreEqual(0.611041229 * Math.Pow(10, 3), (double)substance3.SubstanceTemperature.Value, 0.0001,
+            Assert.AreEqual(0.611041229 * Math.Pow(10, 3), (double)substance3.Temperature.Value, 0.0001,
                 "Substance3: Substance has wrong temperature");
             Assert.AreEqual(1.322 * Math.Pow(10, -3), (double)substance3.SpecificVolume, 0.000001,
                 "Substance3: Substance has wrong specific volume");
@@ -178,7 +178,7 @@ namespace IAPWS_Tests
             substance3 = new Substance(new Pressure(pressure3), new Entropy(entropy3));
 
             //Assert
-            Assert.AreEqual(0.307842258 * Math.Pow(10, 3), (double)substance1.SubstanceTemperature.Value, 0.0001,
+            Assert.AreEqual(0.307842258 * Math.Pow(10, 3), (double)substance1.Temperature.Value, 0.0001,
                 "Substance1: Substance has wrong temperature");
             Assert.AreEqual(1.005 * Math.Pow(10, -3), (double)substance1.SpecificVolume, 0.000001,
                 "Substance1: Substance has wrong specific volume");
@@ -195,7 +195,7 @@ namespace IAPWS_Tests
             Assert.AreEqual(4.088, (double)substance1.SpecificIsochoricHeatCapacity, 0.001,
                 "Substance1: Substance has wrong specific isochoric heat capacity");
 
-            Assert.AreEqual(0.309979785 * Math.Pow(10, 3), (double)substance2.SubstanceTemperature.Value, 0.0001,
+            Assert.AreEqual(0.309979785 * Math.Pow(10, 3), (double)substance2.Temperature.Value, 0.0001,
                 "Substance2: Substance has wrong temperature");
             Assert.AreEqual(9.748 * Math.Pow(10, -4), (double)substance2.SpecificVolume, 0.000001,
                 "Substance2: Substance has wrong specific volume");
@@ -212,7 +212,7 @@ namespace IAPWS_Tests
             Assert.AreEqual(3.893, (double)substance2.SpecificIsochoricHeatCapacity, 0.001,
                 "Substance2: Substance has wrong specific isochoric heat capacity");
 
-            Assert.AreEqual(0.565899909 * Math.Pow(10, 3), (double)substance3.SubstanceTemperature.Value, 0.0001,
+            Assert.AreEqual(0.565899909 * Math.Pow(10, 3), (double)substance3.Temperature.Value, 0.0001,
                 "Substance3: Substance has wrong temperature");
             Assert.AreEqual(1.226 * Math.Pow(10, -3), (double)substance3.SpecificVolume, 0.000001,
                 "Substance3: Substance has wrong specific volume");
