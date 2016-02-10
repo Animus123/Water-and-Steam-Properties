@@ -16,7 +16,7 @@ namespace IAPWS_Application
             
             s = new Substance(1500, 0.5);
             Console.WriteLine(s.ToString());
-
+            
             Console.Read();
         }
     }
