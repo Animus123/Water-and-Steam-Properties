@@ -8,9 +8,11 @@ Water and Steam".
 ##How to use
 
 In order to use the library you should create an instance of the *Substance* class and pass temperature and pressure as arguments:
+
 *Substance s = new Substance(550, 13); // 550 - temperature in K(Kelvin), 13 - pressure in MPa(Megapascals)*
 
 Also, there are another constructor overloads (see IAPWS Example project). For example we can pass to the constructor pressure and entropy values:
+
 *// 2 - pressure in MPa(Megapascals), 6 - entropy in kJ/(kg*K)*
 *s = new Substance(new Pressure(2), new Entropy(6));*
 
@@ -21,13 +23,13 @@ Also, there are another constructor overloads (see IAPWS Example project). For e
 Once you get an object you can use its properties in your calculations.
 All of the properties are listed below:
 
-*Specific Volume
-*Specific Internal Energy
-*Specific Entropy
-*Specific Enthalpy
-*Specific Isobaric Heat Capacity
-*Specific Isochoric Heat Capacity
-*Speed of Sound
-*Temperature
-*Pressure
+-Specific Volume
+-Specific Internal Energy
+-Specific Entropy
+-Specific Enthalpy
+-Specific Isobaric Heat Capacity
+-Specific Isochoric Heat Capacity
+-Speed of Sound
+-Temperature
+-Pressure
 
