@@ -315,13 +315,13 @@ namespace IAPWSL
             StringBuilder sb = new StringBuilder(180);
 
             sb.AppendLine($"Specific Internal Energy: {SpecificInternalEnergy} kJ/kg");
-            sb.AppendLine($"Specific Entropy: {SpecificEntropy.Value} kJ/(kg * K)");
-            sb.AppendLine($"Specific Enthalpy: {SpecificEnthalpy.Value} kJ/kg");
+            sb.AppendLine($"Specific Entropy: {SpecificEntropy?.Value ?? double.NaN} kJ/(kg * K)");
+            sb.AppendLine($"Specific Enthalpy: {SpecificEnthalpy?.Value ?? double.NaN} kJ/kg");
             sb.AppendLine($"Specific Isobaric Heat Capacity: {SpecificIsobaricHeatCapacity} kJ/(kg * K)");
             sb.AppendLine($"Specific Isochoric Heat Capacity: {SpecificIsochoricHeatCapacity} kJ/(kg * K)");
             sb.AppendLine($"Speed of Sound: {SpeedOfSound} m/s");
-            sb.AppendLine($"Temperature: {Temperature.Value} K");
-            sb.AppendLine($"Substance Pressure: {Pressure.Value} MPa");
+            sb.AppendLine($"Temperature: {Temperature?.Value ?? double.NaN} K");
+            sb.AppendLine($"Substance Pressure: {Pressure?.Value ?? double.NaN} MPa");
 
             return sb.ToString();
         }
